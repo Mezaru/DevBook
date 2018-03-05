@@ -25,7 +25,6 @@ namespace DevBook
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseMvcWithDefaultRoute();
         }
     }
