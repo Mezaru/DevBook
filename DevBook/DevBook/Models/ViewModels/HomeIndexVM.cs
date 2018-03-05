@@ -7,5 +7,6 @@ namespace DevBook.Models.ViewModels
 {
     public class HomeIndexVM
     {
+        public string FirstName { get; set; }
     }
 }
