@@ -19,7 +19,7 @@ namespace DevBook.Models.Entities
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        {   
             modelBuilder.Entity<ConnTable>(entity =>
             {
                 entity.Property(e => e.PersonId).HasColumnName("Person_Id");
