@@ -47,5 +47,22 @@ namespace DevBook.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public IActionResult GetData(int id)
+        {
+            var data = repository.GetDataFromId(id);
+            return PartialView("_GetData", data);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Edit()
+        {
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

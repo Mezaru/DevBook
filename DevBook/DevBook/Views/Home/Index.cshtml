@@ -12,23 +12,10 @@
         <select id="SelectList" multiple="multiple">
             @foreach (var item in Model.Person)
             {
-            <option>@item.FirstName</option>
+                <option onclick="GetInformation(@item.Id)" id="item">@item.FirstName</option>
             }
         </select>
     </div>
     <div id="PersonInfo">
-
     </div>
 </div>
-
-
-
-@*@foreach (var item in Model.Person)
-    {
-        <h1>@item.FirstName</h1>
-        <span>@item.LastName</span>
-        @foreach (var Item2 in Model.ConnTable)
-        {
-        <p>@Item2.Skill.Skill1</p>
-        }
-    }*@

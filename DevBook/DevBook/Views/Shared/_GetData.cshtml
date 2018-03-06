@@ -1,0 +1,14 @@
+﻿@model HomeGetDataVM
+
+
+<ul>
+    <li>@Model.Person.FirstName</li>
+    <li>@Model.Person.LastName</li>
+    <li>@Model.Person.Email</li>
+    <li>@Model.Person.PhoneNumber</li>
+    <li>@Model.Person.Description</li>
+</ul>
+    <form asp-controller="Home", asp-action="Edit" asp-route-id="@Model.Person.Id" method="get">
+        <button type="submit">Edit</button>
+    </form>
+

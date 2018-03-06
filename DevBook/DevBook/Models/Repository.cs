@@ -52,5 +52,15 @@ namespace DevBook.Models
 
             return List;
         }
+
+        internal HomeGetDataVM GetDataFromId(int id)
+        {
+            var Person = new HomeGetDataVM()
+            {
+                Person = context.Person.Find(id)
+            };
+
+            return Person;
+        }
     }
 }
