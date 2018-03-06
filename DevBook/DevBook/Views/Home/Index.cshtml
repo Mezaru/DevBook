@@ -2,19 +2,21 @@
 
 
 <div>
+    <select onchange="SortPersons()" id="DropDownList">
+        <option>Filter</option>
+        @foreach (var item in Model.Skill)
+        {
+            <option class="@item.Id" id="selected">@item.Skill1</option>
+        }
+    </select>
+    <select style="width: 250px; height: 200px" id="SelectList" multiple="multiple">
+        @foreach (var item in Model.Person)
+        {
+            <option onclick=" GetInformation(@item.Id)" id="item">@item.FirstName @item.LastName</option>
+        }
+    </select>
+</div>
+<div id="PersonInfo">
     <div>
-        <select id="DropDownList">  
-            @foreach (var item in Model.Skill)
-            {
-                <option>@item.Skill1</option>
-            }
-        </select>
-        <select id="SelectList" multiple="multiple">
-            @foreach (var item in Model.Person)
-            {
-                <option onclick="GetInformation(@item.Id)" id="item">@item.FirstName</option>
-            }
-        </select>
     </div>
-    <div id="PersonInfo">
-    </div></div>
+</div>

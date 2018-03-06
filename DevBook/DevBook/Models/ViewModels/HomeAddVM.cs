@@ -28,7 +28,7 @@ namespace DevBook.Models.ViewModels
             [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
             public string Email { get; set; }
 
-            [Display(Name = "Phone-number (xxxx-xx-xx-xx)")]
+            [Display(Name = "Phone-number (for example: +46701234567)")]
             [Required(ErrorMessage = "Enter phone-number")]
             public string PhoneNumber { get; set; }
 

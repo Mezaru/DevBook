@@ -1,0 +1,6 @@
+﻿@model HomeFilterDataVM
+
+@foreach (var item in Model.Person)
+{
+    <option onclick="GetInformation(@item.Id)" id="item">@item.FirstName @item.LastName</option>
+}
