@@ -85,10 +85,21 @@ namespace DevBook.Models
             context.SaveChanges();
         }
 
-        public void RemovePerson(Person person)
+        public void RemovePerson(HomeEditVM person)
         {
-            context.Person.Remove(person);
 
+           var model = context.ConnTable
+                .Where(p => p.PersonId == person.Id);
+
+            foreach (var item in model)
+            {
+            context.ConnTable.Remove(item);
+            }
+
+            var personToRemove = context.Person.Single(p => p.Id == person.Id);
+
+            context.Person.Remove(personToRemove);
+                
             context.SaveChanges();
         }
 

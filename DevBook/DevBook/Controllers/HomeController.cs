@@ -82,11 +82,9 @@ namespace DevBook.Controllers
 
         [HttpPost]
         [Route("Home/Remove{id}")]
-        public IActionResult Remove(Person person)
+        public IActionResult Remove(HomeEditVM person)
         {
-
-           repository.RemovePerson(person);
-
+            repository.RemovePerson(person);
 
             return RedirectToAction(nameof(Index));
         }
