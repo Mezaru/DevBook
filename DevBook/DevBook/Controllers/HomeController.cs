@@ -30,7 +30,9 @@ namespace DevBook.Controllers
         [Route("Home/Add")]
         public IActionResult Add()
         {
-            return View();
+            var viewModel = repository.GetAllSkills();
+
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -44,5 +46,6 @@ namespace DevBook.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

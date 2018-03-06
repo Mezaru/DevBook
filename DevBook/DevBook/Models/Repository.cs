@@ -29,7 +29,7 @@ namespace DevBook.Models
             return List;
         }
 
-        internal void AddNewPerson(HomeAddVM model)
+        public void AddNewPerson(HomeAddVM model)
         {
             context.Person.Add(new Person
             {
@@ -37,9 +37,20 @@ namespace DevBook.Models
                 LastName = model.person.LastName,
                 Email = model.person.Email,
                 PhoneNumber = model.person.PhoneNumber,
-                Description = model.person.Description
+                Description = model.person.Description,
             });
+         
             context.SaveChanges();
+        }
+
+        public HomeAddVM GetAllSkills()
+        {
+            HomeAddVM List = new HomeAddVM()
+            {
+                skills = context.Skill.ToArray(),
+            };
+
+            return List;
         }
     }
 }
