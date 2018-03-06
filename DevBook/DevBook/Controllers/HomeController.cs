@@ -40,7 +40,11 @@ namespace DevBook.Controllers
         public IActionResult Add(HomeAddVM model)
         {
             if (!ModelState.IsValid)
-                return View(model);
+            {
+                var viewModel = repository.GetAllSkills();
+                viewModel.Person.SelectedSkills = model.Person.SelectedSkills;
+                return View(viewModel);
+            }
 
             repository.AddNewPerson(model);
 

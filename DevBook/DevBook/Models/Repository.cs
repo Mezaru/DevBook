@@ -1,5 +1,6 @@
 ﻿using DevBook.Models.Entities;
 using DevBook.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,11 +34,11 @@ namespace DevBook.Models
         {
             context.Person.Add(new Person
             {
-                FirstName = model.person.FirstName,
-                LastName = model.person.LastName,
-                Email = model.person.Email,
-                PhoneNumber = model.person.PhoneNumber,
-                Description = model.person.Description,
+                FirstName = model.Person.FirstName,
+                LastName = model.Person.LastName,
+                Email = model.Person.Email,
+                PhoneNumber = model.Person.PhoneNumber,
+                Description = model.Person.Description,
             });
 
             context.ConnTable.Add(new ConnTable
@@ -51,7 +52,16 @@ namespace DevBook.Models
         {
             HomeAddVM List = new HomeAddVM()
             {
-                Skills = context.Skill.ToArray(),
+                Person = new HomeAddVM.PersonVM
+                {
+                    Skills = context.Skill
+                        .Select(o => new SelectListItem
+                        {
+                            Text = o.Skill1,
+                            Value = o.Id.ToString()
+                        })
+                        .ToArray()
+                }
             };
 
             return List;

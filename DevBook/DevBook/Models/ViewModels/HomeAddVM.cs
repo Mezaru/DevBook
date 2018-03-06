@@ -11,14 +11,10 @@ namespace DevBook.Models.ViewModels
     public class HomeAddVM
     {
 
-        public PersonVM person { get; set; }
-        public Skill[] Skills { get; set; }
-
+        public PersonVM Person { get; set; }
 
         public class PersonVM
         {
-            public int Id { get; set; }
-
             [Required(ErrorMessage = "Enter first name")]
             [Display(Name = "First name")]
             public string FirstName { get; set; }
@@ -38,9 +34,10 @@ namespace DevBook.Models.ViewModels
 
             [Display(Name = "Description (optional)")]
             public string Description { get; set; }
+            
+            public int[] SelectedSkills { get; set; }
 
-            [Display(Name = "Skills")]
-            public SelectListItem Skills { get; set; }
+            public SelectListItem[] Skills { get; set; }
         }
     }
 }
