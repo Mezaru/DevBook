@@ -23,10 +23,14 @@
         <input asp-for="Person.Description" type="text" />
         <span asp-validation-for="Person.Description"></span>
         <br />
+       
+        
         @foreach (var item in Model.Person.Skills)
         {
+        <div>
             <input type="checkbox" name="@($"{nameof(HomeAddVM.Person)}.{nameof(HomeAddVM.PersonVM.SelectedSkills)}")" value="@item.Value" />
-            <label>@item.Text</label>
+            <label class="checkbox-inline"> @item.Text </label>
+        </div>
         }
         <br />
         <input style="background-color: white" type="submit" value="Add Person" />
