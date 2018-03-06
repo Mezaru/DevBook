@@ -28,8 +28,8 @@
         @foreach (var item in Model.Person.Skills)
         {
         <div>
-            <input type="checkbox" name="@($"{nameof(HomeAddVM.Person)}.{nameof(HomeAddVM.PersonVM.SelectedSkills)}")" value="@item.Value" />
-            <label class="checkbox-inline"> @item.Text </label>
+            <input type="checkbox" name="@($"{nameof(HomeAddVM.Person)}.{nameof(HomeAddVM.PersonVM.SelectedSkills)}")" id="@item.Value" value="@item.Value" />
+            <label for="@item.Value" class="checkbox-inline"> @item.Text  </label>
         </div>
         }
         <br />
