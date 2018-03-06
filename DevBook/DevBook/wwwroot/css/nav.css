@@ -1,5 +1,4 @@
-﻿
-.example3 .navbar-brand {
+﻿.example3 .navbar-brand {
     height: 80px;
 }
 
@@ -11,4 +10,11 @@
 .example3 .navbar-toggle {
     padding: 10px;
     margin: 25px 15px 25px 0;
+}
+.Main{
+    width: 70%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:rgba(0, 0, 0, 0.21);
+    padding: 40px;   
 }

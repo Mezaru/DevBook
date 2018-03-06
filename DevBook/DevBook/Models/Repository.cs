@@ -42,6 +42,18 @@ namespace DevBook.Models
             });
 
             context.SaveChanges();
+
+            var person = context.Person.Last();
+
+            foreach (var item in model.Person.SelectedSkills)
+            {
+                context.ConnTable.Add(new ConnTable
+                {
+                    SkillId = item,
+                    PersonId = person.Id,
+                });
+            }
+            context.SaveChanges();
         }
 
         public HomeAddVM GetAllSkills()
