@@ -18,7 +18,6 @@ namespace DevBook.Controllers
             this.repository = repository;
         }
 
-
         public IActionResult Index()
         {
             var name = repository.GetAllPersons();
