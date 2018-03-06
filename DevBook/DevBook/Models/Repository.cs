@@ -39,6 +39,10 @@ namespace DevBook.Models
                 PhoneNumber = model.person.PhoneNumber,
                 Description = model.person.Description,
             });
+
+            context.ConnTable.Add(new ConnTable
+            {
+            });
          
             context.SaveChanges();
         }
@@ -47,7 +51,7 @@ namespace DevBook.Models
         {
             HomeAddVM List = new HomeAddVM()
             {
-                skills = context.Skill.ToArray(),
+                Skills = context.Skill.ToArray(),
             };
 
             return List;
