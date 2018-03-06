@@ -74,6 +74,38 @@ namespace DevBook.Models
             return List;
         }
 
+        public void UpdatePerson(HomeEditVM model)
+        {
+            var personToUpdate = context.Person.Find(model.Id);
+            personToUpdate.FirstName = model.FirstName;
+            personToUpdate.LastName = model.LastName;
+            personToUpdate.Email = model.Email;
+            personToUpdate.PhoneNumber = model.PhoneNumber;
+            personToUpdate.Description = model.Description;
+            context.SaveChanges();
+        }
+
+        public void RemovePerson(Person person)
+        {
+            context.Person.Remove(person);
+
+            context.SaveChanges();
+        }
+
+        internal HomeEditVM GetPersonById(int id)
+        {
+            var person = context.Person.Find(id);
+
+            return new HomeEditVM {
+                Id = person.Id,
+                FirstName = person.FirstName,
+                LastName = person.LastName,
+                Email = person.Email,
+                PhoneNumber = person.PhoneNumber,
+                Description = person.Description
+            };
+        }
+
         internal HomeGetDataVM GetDataFromId(int id)
         {
             var Person = new HomeGetDataVM()
