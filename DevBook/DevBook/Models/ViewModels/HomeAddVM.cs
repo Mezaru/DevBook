@@ -1,4 +1,5 @@
 ﻿using DevBook.Models.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,11 +11,12 @@ namespace DevBook.Models.ViewModels
     public class HomeAddVM
     {
 
-        public Person person { get; set; }
+        public PersonVM person { get; set; }
+        public Skill[] skills { get; set; }
 
-
-        public class Person
+        public class PersonVM
         {
+
             [Required(ErrorMessage = "Enter first name")]
             [Display(Name = "First name")]
             public string FirstName { get; set; }
@@ -34,8 +36,6 @@ namespace DevBook.Models.ViewModels
 
             [Display(Name = "Description (optional)")]
             public string Description { get; set; }
-
         }
-
     }
 }

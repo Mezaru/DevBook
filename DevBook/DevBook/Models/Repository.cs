@@ -39,7 +39,6 @@ namespace DevBook.Models
                 Description = model.person.Description
             });
             context.SaveChanges();
-
         }
     }
 }
