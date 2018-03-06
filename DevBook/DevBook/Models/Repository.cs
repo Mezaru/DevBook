@@ -96,7 +96,9 @@ namespace DevBook.Models
             context.ConnTable.Remove(item);
             }
 
-            var personToRemove = context.Person.Single(p => p.Id == person.Id);
+
+            var personToRemove = context.Person
+                .Single(p => p.Id == person.Id);
 
             context.Person.Remove(personToRemove);
                 
