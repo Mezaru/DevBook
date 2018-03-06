@@ -16,6 +16,7 @@ namespace DevBook.Models
         {
             this.context = context;
         }
+
         public HomeIndexVM GetInfoIndexVM()
         {
             HomeIndexVM List = new HomeIndexVM()
