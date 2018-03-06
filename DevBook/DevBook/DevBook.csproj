@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Scripts\" />
-    <Folder Include="wwwroot\" />
+    <None Include="wwwroot\css\nav.css" />
+    <None Include="wwwroot\Scripts\JavaScript.js" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,28 +1,34 @@
 ﻿@model HomeIndexVM
 
 
+<div>
     <div>
-        <div>
-            <select id="DropDownList">
-                @foreach (var item in Model.Skill)
-                {
-                    <option>@item.Skill1</option>
-                }
-            </select>
-        </div>
-        <div>
-
-        </div>
-    </div>
-
-
-
-    @*@foreach (var item in Model.Person)
-        {
-            <h1>@item.FirstName</h1>
-            <span>@item.LastName</span>
-            @foreach (var Item2 in Model.ConnTable)
+        <select id="DropDownList">  
+            @foreach (var item in Model.Skill)
             {
-            <p>@Item2.Skill.Skill1</p>
+                <option>@item.Skill1</option>
             }
-        }*@
+        </select>
+        <select id="SelectList" multiple="multiple">
+            @foreach (var item in Model.Person)
+            {
+            <option>@item.FirstName</option>
+            }
+        </select>
+    </div>
+    <div id="PersonInfo">
+
+    </div>
+</div>
+
+
+
+@*@foreach (var item in Model.Person)
+    {
+        <h1>@item.FirstName</h1>
+        <span>@item.LastName</span>
+        @foreach (var Item2 in Model.ConnTable)
+        {
+        <p>@Item2.Skill.Skill1</p>
+        }
+    }*@
