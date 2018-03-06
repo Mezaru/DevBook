@@ -12,10 +12,12 @@ namespace DevBook.Models.ViewModels
     {
 
         public PersonVM person { get; set; }
-        public Skill[] skills { get; set; }
+        public Skill[] Skills { get; set; }
+
 
         public class PersonVM
         {
+            public int Id { get; set; }
 
             [Required(ErrorMessage = "Enter first name")]
             [Display(Name = "First name")]
@@ -36,6 +38,9 @@ namespace DevBook.Models.ViewModels
 
             [Display(Name = "Description (optional)")]
             public string Description { get; set; }
+
+            [Display(Name = "Skills")]
+            public SelectListItem Skills { get; set; }
         }
     }
 }

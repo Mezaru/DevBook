@@ -23,14 +23,8 @@
         <input asp-for="person.Description" type="text" />
         <span asp-validation-for="person.Description"></span>
         <br />
-        <select>
-            @foreach (var item in Model.skills)
-            {
-                {
-                    <option>@item.Skill1</option>
-                }
-            }
-        </select>
+        <select
+                asp-for="person.Skills"></select>
         <br />
         <input style="background-color: white" type="submit" value="Add Person" />
     </form>
