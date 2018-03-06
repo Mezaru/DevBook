@@ -6,6 +6,7 @@
     <p>E-Mail: @Model.Person.Email</p>
     <p>Phonenumber: @Model.Person.PhoneNumber</p>
     <p>Description: @Model.Person.Description</p>
+    
 
     <form asp-controller="Home", asp-action="Edit" asp-route-id="@Model.Person.Id" method="get">
         <button type="submit">Edit</button>

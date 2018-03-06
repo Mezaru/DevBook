@@ -23,10 +23,14 @@
         <textarea asp-for="Person.Description" type="text" style="width: 200px; height: 200px" ></textarea>
         <span asp-validation-for="Person.Description"></span>
         <br />
+       
+        
         @foreach (var item in Model.Person.Skills)
         {
-            <input type="checkbox" name="@($"{nameof(HomeAddVM.Person)}.{nameof(HomeAddVM.PersonVM.SelectedSkills)}")" value="@item.Value" />
-            <label>@item.Text</label>
+        <div>
+            <input type="checkbox" name="@($"{nameof(HomeAddVM.Person)}.{nameof(HomeAddVM.PersonVM.SelectedSkills)}")" id="@item.Value" value="@item.Value" />
+            <label for="@item.Value" class="checkbox-inline"> @item.Text  </label>
+        </div>
         }
         <br />
         <input style="background-color: white" type="submit" value="Add Person" />

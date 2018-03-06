@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DevBook.Models;
+using DevBook.Models.Entities;
 using DevBook.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -61,13 +62,32 @@ namespace DevBook.Controllers
         }
 
         [HttpGet]
+        [Route("Home/Edit/{id}")]
         public IActionResult Edit(int id)
         {
-            return View();
+            HomeEditVM model = repository.GetPersonById(id);
+
+            return View(model);
         }
         [HttpPost]
-        public IActionResult Edit()
+        [Route("Home/Edit/{id}")]
+        public IActionResult Edit(HomeEditVM model)
         {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            repository.UpdatePerson(model);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [Route("Home/Remove{id}")]
+        public IActionResult Remove(Person person)
+        {
+
+           repository.RemovePerson(person);
+
+
             return RedirectToAction(nameof(Index));
         }
 
