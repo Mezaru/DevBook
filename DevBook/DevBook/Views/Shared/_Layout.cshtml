@@ -14,7 +14,7 @@
 <body style="background: #74DE79">
     <div>
         <div class="example3">
-            <nav class="navbar navbar-inverse navbar-static-top">
+            <nav style="margin-bottom: 0px;" class="navbar navbar-inverse navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
@@ -35,7 +35,9 @@
                     </div>
                 </div>
             </nav>
-            @RenderBody()
+            <div class="Main">
+                @RenderBody()
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
