@@ -42,7 +42,9 @@ namespace DevBook.Controllers
             if (!ModelState.IsValid)
             {
                 var viewModel = repository.GetAllSkills();
+
                 viewModel.Person.SelectedSkills = model.Person.SelectedSkills;
+
                 return View(viewModel);
             }
 

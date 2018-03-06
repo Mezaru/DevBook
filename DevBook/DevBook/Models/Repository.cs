@@ -38,13 +38,9 @@ namespace DevBook.Models
                 LastName = model.Person.LastName,
                 Email = model.Person.Email,
                 PhoneNumber = model.Person.PhoneNumber,
-                Description = model.Person.Description,
+                Description = model.Person.Description
             });
 
-            context.ConnTable.Add(new ConnTable
-            {
-            });
-         
             context.SaveChanges();
         }
 
@@ -63,7 +59,6 @@ namespace DevBook.Models
                         .ToArray()
                 }
             };
-
             return List;
         }
 
