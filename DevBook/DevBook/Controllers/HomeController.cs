@@ -19,9 +19,10 @@ namespace DevBook.Controllers
             this.repository = repository;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            var name = repository.GetAllPersons();
+            var name = repository.GetInfoIndexVM();
             return View(name);
         }
 

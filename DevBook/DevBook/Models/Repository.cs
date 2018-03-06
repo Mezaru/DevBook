@@ -16,12 +16,16 @@ namespace DevBook.Models
         {
             this.context = context;
         }
-        public HomeIndexVM GetAllPersons()
+        public HomeIndexVM GetInfoIndexVM()
         {
-            return new HomeIndexVM()
+            HomeIndexVM List = new HomeIndexVM()
             {
-                FirstName = context.Person.First().FirstName
+                Person = context.Person.ToArray(),
+                Skill = context.Skill.ToArray(),
+                ConnTable = context.ConnTable.ToArray()
             };
+
+            return List;
         }
 
         internal void AddNewPerson(HomeAddVM model)
