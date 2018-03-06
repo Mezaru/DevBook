@@ -70,5 +70,12 @@ namespace DevBook.Controllers
         {
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public IActionResult FilterPersons(int id)
+        {
+            var data = repository.GetFilterFromId(id);
+            return PartialView("_FilterPersons", data);
+        }
     }
 }

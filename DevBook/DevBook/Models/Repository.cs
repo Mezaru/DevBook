@@ -74,6 +74,16 @@ namespace DevBook.Models
             return List;
         }
 
+        internal HomeFilterDataVM GetFilterFromId(int id)
+        {
+            var person = new HomeFilterDataVM()
+            {
+                Person = context.ConnTable.Where(p => p.SkillId == id).Select(p => p.Person).ToArray()
+            };
+
+            return person;
+        }
+
         internal HomeGetDataVM GetDataFromId(int id)
         {
             var Person = new HomeGetDataVM()
