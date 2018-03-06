@@ -1,28 +1,28 @@
 ﻿@model HomeIndexVM
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
 
-
-<div>
     <div>
-        <select id="DropDownList">  
-            @foreach (var item in Model.Skill)
-            {
-                <option>@item.Skill1</option>
-            }
-        </select>
+        <div>
+            <select id="DropDownList">
+                @foreach (var item in Model.Skill)
+                {
+                    <option>@item.Skill1</option>
+                }
+            </select>
+        </div>
+        <div>
+
+        </div>
     </div>
-    <div>
-
-    </div>
-</div>
 
 
 
-@*@foreach (var item in Model.Person)
-    {
-        <h1>@item.FirstName</h1>
-        <span>@item.LastName</span>
-        @foreach (var Item2 in Model.ConnTable)
+    @*@foreach (var item in Model.Person)
         {
-        <p>@Item2.Skill.Skill1</p>
-        }
-    }*@
+            <h1>@item.FirstName</h1>
+            <span>@item.LastName</span>
+            @foreach (var Item2 in Model.ConnTable)
+            {
+            <p>@Item2.Skill.Skill1</p>
+            }
+        }*@
