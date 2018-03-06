@@ -2,42 +2,17 @@
 
 <html>
 <head>
-    <style>
-
-
-
-        .example3 .navbar-brand {
-            height: 80px;
-        }
-
-        .example3 .nav > li > a {
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
-
-        .example3 .navbar-toggle {
-            padding: 10px;
-            margin: 25px 15px 25px 0;
-        }
-    </style>
-
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <title>DevBook</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <link rel="stylesheet" href="~/css/nav.css" />
 </head>
 <body style="background: #74DE79">
     <div>
-
-
         <div class="example3">
             <nav class="navbar navbar-inverse navbar-static-top">
                 <div class="container">
@@ -56,20 +31,15 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="active"><a href="/home/index">Home</a></li>
                             <li><a href="/home/add/">Add</a></li>
-
-
-
                         </ul>
                     </div>
-                    <!--/.nav-collapse -->
                 </div>
-                <!--/.container-fluid -->
             </nav>
             @RenderBody()
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   
+    <script src="~/Scripts/JavaScript.js"></script>
 </body>
 </html>

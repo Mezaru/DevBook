@@ -9,8 +9,14 @@
                 <option>@item.Skill1</option>
             }
         </select>
+        <select id="SelectList" multiple="multiple">
+            @foreach (var item in Model.Person)
+            {
+            <option>@item.FirstName</option>
+            }
+        </select>
     </div>
-    <div>
+    <div id="PersonInfo">
 
     </div>
 </div>
