@@ -23,5 +23,19 @@ namespace DevBook.Models
                 FirstName = context.Person.First().FirstName
             };
         }
+
+        internal void AddNewPerson(HomeAddVM model)
+        {
+            context.Person.Add(new Person
+            {
+                FirstName = model.person.FirstName,
+                LastName = model.person.LastName,
+                Email = model.person.Email,
+                PhoneNumber = model.person.PhoneNumber,
+                Description = model.person.Description
+            });
+            context.SaveChanges();
+
+        }
     }
 }
