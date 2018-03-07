@@ -174,7 +174,8 @@ namespace DevBook.Models
         {
             var Person = new HomeGetDataVM()
             {
-                Person = context.Person.Find(id)
+                Person = context.Person.Find(id),
+                //Skill = context.Skill.ToArray(),
             };
 
             return Person;

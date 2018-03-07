@@ -9,7 +9,7 @@ namespace DevBook.Models.ViewModels
     public class HomeGetDataVM
     {
         public Person Person { get; set; }
-        public Skill Skill { get; set; }
+        public Skill[] Skill { get; set; }
         public ConnTable ConnTable { get; set; }
     }
 }
