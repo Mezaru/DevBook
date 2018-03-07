@@ -25,9 +25,9 @@
             @foreach (var item in Model.Skills)
             {
             <div>
-                <input type="checkbox" name="@($"{nameof(HomeEditVM)}.{nameof(HomeEditVM.SelectedSkills)}")" value="@item.Value" id="@item.Value" @(item.Selected ? "checked" : "") />
+                <input type="checkbox" name="@($"{nameof(HomeEditVM.SelectedSkills)}.{nameof(HomeEditVM.SelectedSkills)}")" value="@item.Value" id="@item.Value" @(item.Selected ? "checked" : "") />
                 <label for="@item.Value" class="checkbox-inline"> @item.Text  </label>
-            </div>
+                </div>
             }
             <br />
             <input style="background-color: white" type="submit" value="Update" />
