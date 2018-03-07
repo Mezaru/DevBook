@@ -74,7 +74,12 @@ namespace DevBook.Controllers
         public IActionResult Edit(HomeEditVM model)
         {
             if (!ModelState.IsValid)
+            {
+                var viewModel = repository.GetAllSkills();
+
+                viewModel.Person.SelectedSkills = model.SelectedSkills;
                 return View(model);
+            }
 
             repository.UpdatePerson(model);
             return RedirectToAction(nameof(Index));

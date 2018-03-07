@@ -115,7 +115,15 @@ namespace DevBook.Models
                 LastName = person.LastName,
                 Email = person.Email,
                 PhoneNumber = person.PhoneNumber,
-                Description = person.Description
+                Description = person.Description,
+
+                  Skills = context.Skill
+                        .Select(o => new SelectListItem
+                        {
+                            Text = o.Skill1,
+                            Value = o.Id.ToString()
+                        })
+                        .ToArray()
             };
         }
 
