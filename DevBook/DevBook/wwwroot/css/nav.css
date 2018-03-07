@@ -11,10 +11,25 @@
     padding: 10px;
     margin: 25px 15px 25px 0;
 }
-.Main{
+.Main {
     width: 70%;
-    margin-left:auto;
-    margin-right:auto;
-    background-color:rgba(0, 0, 0, 0.21);
-    padding: 40px;   
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0.21);
+    padding: 40px;
+    display: -webkit-box;
 }
+
+div.InfoTable {
+    border: solid;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 7px 6px 20px 0px black;
+    background-color: #76de79;
+    color: #222222;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+
