@@ -22,11 +22,10 @@ namespace DevBook.Models
         {
             HomeIndexVM List = new HomeIndexVM()
             {
-                Person = context.Person.ToArray(),
+                Person = context.Person.OrderBy(p => p.FirstName).ToArray(),
                 Skill = context.Skill.ToArray(),
                 ConnTable = context.ConnTable.ToArray()
             };
-
             return List;
         }
 
@@ -85,6 +84,16 @@ namespace DevBook.Models
             context.SaveChanges();
         }
 
+        internal HomeFilterDataVM GetAllPersons()
+        {
+            var person = new HomeFilterDataVM()
+            {
+                Person = context.Person.OrderBy(p => p.FirstName).ToArray()
+            };
+
+            return person;
+        }
+
         public void RemovePerson(HomeEditVM person)
         {
 
@@ -123,7 +132,7 @@ namespace DevBook.Models
         {
             var person = new HomeFilterDataVM()
             {
-                Person = context.ConnTable.Where(p => p.SkillId == id).Select(p => p.Person).ToArray()
+                Person = context.ConnTable.Where(p => p.SkillId == id).Select(p => p.Person).OrderBy(p => p.FirstName).ToArray()
             };
 
             return person;
