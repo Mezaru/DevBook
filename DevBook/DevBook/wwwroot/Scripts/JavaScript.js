@@ -28,3 +28,20 @@ function Test() {
 }
 
 
+$(document).ready(function () {
+
+
+    $("#PersonInfo").hide();
+
+
+
+
+
+});
+
+function Show() {
+
+    $("#PersonInfo").show();
+
+}
+
