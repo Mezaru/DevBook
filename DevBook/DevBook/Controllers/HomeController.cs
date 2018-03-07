@@ -62,25 +62,20 @@ namespace DevBook.Controllers
         }
 
         [HttpGet]
-        [Route("Home/Edit/{id}")]
         public IActionResult Edit(int id)
         {
-            HomeEditVM model = repository.GetPersonById(id);
-
+            var model = repository.GetPersonById(id);
+            
             return View(model);
         }
+
         [HttpPost]
-        [Route("Home/Edit/{id}")]
         public IActionResult Edit(HomeEditVM model)
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = repository.GetAllSkills();
-
-                viewModel.Person.SelectedSkills = model.SelectedSkills;
-                return View(viewModel);
+                return View(model);
             }
-
             repository.UpdatePerson(model);
             return RedirectToAction(nameof(Index));
         }
