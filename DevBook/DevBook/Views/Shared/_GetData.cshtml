@@ -5,12 +5,12 @@
     <p>Last nam: @Model.Person.LastName</p>
     <p>E-Mail: @Model.Person.Email</p>
     <p>Phonenumber: @Model.Person.PhoneNumber</p>
-    <p>Description: @Model.Person.Description</p>
-    @*<p>Skills @foreach (var item in Model.Skill)
+    <p>Skills: @foreach (var item in Model.Skill)
     {
-        @item
-    }</p>*@
-    
+        <span>@item.Skill1</span>
+    }</p>
+    <p>Description: @Model.Person.Description</p>
+        
 
     <form asp-controller="Home", asp-action="Edit" asp-route-id="@Model.Person.Id" method="get">
         <button type="submit">Edit</button>

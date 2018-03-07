@@ -175,7 +175,7 @@ namespace DevBook.Models
             var Person = new HomeGetDataVM()
             {
                 Person = context.Person.Find(id),
-                //Skill = context.Skill.ToArray(),
+                Skill = context.ConnTable.Where(p => p.PersonId == id).Select(p => p.Skill).ToArray()
             };
 
             return Person;
