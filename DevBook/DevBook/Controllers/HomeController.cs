@@ -78,7 +78,7 @@ namespace DevBook.Controllers
                 var viewModel = repository.GetAllSkills();
 
                 viewModel.Person.SelectedSkills = model.SelectedSkills;
-                return View(model);
+                return View(viewModel);
             }
 
             repository.UpdatePerson(model);
