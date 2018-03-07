@@ -19,8 +19,8 @@
             <span asp-validation-for="PhoneNumber"></span>
             <br />
             <label asp-for="Description"></label>
-            <input asp-for="Description" type="text" />
-            <span asp-validation-for="Description"></span>
+            <textarea asp-for="Description" style="width: 200px; height: 200px" type="text"></textarea>
+            <span asp-validation-for="Description"></span>  
             <br />
             @foreach (var item in Model.Skills)
             {

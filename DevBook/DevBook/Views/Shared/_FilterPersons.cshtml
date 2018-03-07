@@ -2,5 +2,5 @@
 
 @foreach (var item in Model.Person)
 {
-    <option onclick="GetInformation(@item.Id)" id="item">@item.FirstName @item.LastName</option>
+    <option onclick="GetInformation(@item.Id), Show()" id="item">@item.FirstName @item.LastName</option>
 }

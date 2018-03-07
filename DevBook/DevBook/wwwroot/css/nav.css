@@ -20,7 +20,7 @@
     display: flex;
 }
 
-div.InfoTable {
+.InfoTable {
     border-radius: 15px;
     padding: 20px;
     background-color: #76de79;
@@ -29,12 +29,8 @@ div.InfoTable {
     margin-right: auto;
     overflow: hidden;
     box-shadow: 3px 4px 4px 0px black;
-}
-    
-
-
-button.InfoTable {
-    border: 1px solid #000000;
+    width: 400px;
+    visibility: hidden;
 }
 
 .DropDown {

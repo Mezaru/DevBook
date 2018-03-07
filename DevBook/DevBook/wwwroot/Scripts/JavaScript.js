@@ -27,21 +27,9 @@ function Test() {
     alert("test");
 }
 
-
-$(document).ready(function () {
-
-
-    $("#PersonInfo").hide();
-
-
-
-
-
-});
-
 function Show() {
 
     $("#PersonInfo").show();
-
+    $("#PersonInfo").css('visibility', 'visible');
 }
 

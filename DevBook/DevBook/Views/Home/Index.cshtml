@@ -1,8 +1,8 @@
 ﻿@model HomeIndexVM
 
 
-<div>
-    <select class="SortPersons"; onchange="SortPersons()" id="DropDownList">
+<div style=" display: grid; margin-left: auto; margin-right: auto;">
+    <select style="margin-top: auto" class="SortPersons"; onchange="SortPersons()" id="DropDownList">
         <option>Filter</option>
         @foreach (var item in Model.Skill)
         {
