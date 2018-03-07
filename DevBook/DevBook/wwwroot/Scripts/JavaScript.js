@@ -13,23 +13,18 @@ function SortPersons() {
 
     var id = $("#DropDownList").find(":selected").attr("class");
 
-    if (id !== undefined) {
-        $.ajax({
-            url: "/Home/FilterPersons/",
-            type: "Get",
-            data: { "id": id },
-            success: function (result) {
-                console.log(result);
-                $("#SelectList").html(result);
-            }
-        });
-    }
-    else {
-        console.log("hello")
-    }
+    $.ajax({
+        url: "/Home/FilterPersons/",
+        type: "Get",
+        data: { "id": id },
+        success: function (result) {
+            console.log(result);
+            $("#SelectList").html(result);
+        }
+    });
 }
 function Test() {
-    alert("test")
+    alert("test");
 }
 
 

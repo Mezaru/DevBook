@@ -74,7 +74,12 @@ namespace DevBook.Controllers
         public IActionResult Edit(HomeEditVM model)
         {
             if (!ModelState.IsValid)
-                return View(model);
+            {
+                var viewModel = repository.GetAllSkills();
+
+                viewModel.Person.SelectedSkills = model.SelectedSkills;
+                return View(viewModel);
+            }
 
             repository.UpdatePerson(model);
             return RedirectToAction(nameof(Index));
@@ -92,7 +97,15 @@ namespace DevBook.Controllers
         [HttpGet]
         public IActionResult FilterPersons(int id)
         {
-            var data = repository.GetFilterFromId(id);
+            HomeFilterDataVM data;
+            if (id == 0)
+            {
+                data = repository.GetAllPersons();
+            }
+            else
+            {
+                data = repository.GetFilterFromId(id);
+            }
             return PartialView("_FilterPersons", data);
         }
     }

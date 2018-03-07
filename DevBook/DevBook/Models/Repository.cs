@@ -22,11 +22,10 @@ namespace DevBook.Models
         {
             HomeIndexVM List = new HomeIndexVM()
             {
-                Person = context.Person.ToArray(),
+                Person = context.Person.OrderBy(p => p.FirstName).ToArray(),
                 Skill = context.Skill.ToArray(),
                 ConnTable = context.ConnTable.ToArray()
             };
-
             return List;
         }
 
@@ -82,18 +81,38 @@ namespace DevBook.Models
             personToUpdate.Email = model.Email;
             personToUpdate.PhoneNumber = model.PhoneNumber;
             personToUpdate.Description = model.Description;
+
             context.SaveChanges();
+
+            var skillsToUpdate = context.ConnTable.Where(s => s.PersonId == model.Id);
+
+            foreach (var item in model.SelectedSkills)
+            {
+                
+            }
+            context.SaveChanges();
+
+        }
+
+        internal HomeFilterDataVM GetAllPersons()
+        {
+            var person = new HomeFilterDataVM()
+            {
+                Person = context.Person.OrderBy(p => p.FirstName).ToArray()
+            };
+
+            return person;
         }
 
         public void RemovePerson(HomeEditVM person)
         {
 
-           var model = context.ConnTable
-                .Where(p => p.PersonId == person.Id);
+            var model = context.ConnTable
+                 .Where(p => p.PersonId == person.Id);
 
             foreach (var item in model)
             {
-            context.ConnTable.Remove(item);
+                context.ConnTable.Remove(item);
             }
 
 
@@ -101,7 +120,7 @@ namespace DevBook.Models
                 .Single(p => p.Id == person.Id);
 
             context.Person.Remove(personToRemove);
-                
+
             context.SaveChanges();
         }
 
@@ -109,13 +128,22 @@ namespace DevBook.Models
         {
             var person = context.Person.Find(id);
 
-            return new HomeEditVM {
+            return new HomeEditVM
+            {
                 Id = person.Id,
                 FirstName = person.FirstName,
                 LastName = person.LastName,
                 Email = person.Email,
                 PhoneNumber = person.PhoneNumber,
-                Description = person.Description
+                Description = person.Description,
+
+                Skills = context.Skill
+                        .Select(o => new SelectListItem
+                        {
+                            Text = o.Skill1,
+                            Value = o.Id.ToString()
+                        })
+                        .ToArray()
             };
         }
 
@@ -123,7 +151,7 @@ namespace DevBook.Models
         {
             var person = new HomeFilterDataVM()
             {
-                Person = context.ConnTable.Where(p => p.SkillId == id).Select(p => p.Person).ToArray()
+                Person = context.ConnTable.Where(p => p.SkillId == id).Select(p => p.Person).OrderBy(p => p.FirstName).ToArray()
             };
 
             return person;
