@@ -10,9 +10,7 @@ namespace DevBook.Models.ViewModels
 {
     public class HomeAddVM
     {
-
         public PersonVM Person { get; set; }
-
         public class PersonVM
         {
             [Required(ErrorMessage = "Enter first name")]

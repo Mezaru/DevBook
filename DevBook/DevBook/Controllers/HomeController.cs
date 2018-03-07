@@ -74,7 +74,11 @@ namespace DevBook.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                var viewModel = repository.GetAllSkills();
+
+                viewModel.Person.SelectedSkills = model.SelectedSkills;
+
+                return View(viewModel);
             }
             repository.UpdatePerson(model);
             return RedirectToAction(nameof(Index));
