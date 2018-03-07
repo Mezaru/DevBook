@@ -27,7 +27,7 @@
             <div>
                 <input type="checkbox" name="@($"{nameof(HomeEditVM.SelectedSkills)}")" value="@item.Value" id="@item.Value" @(item.Selected ? "checked" : "") />
                 <label for="@item.Value" class="checkbox-inline"> @item.Text  </label>
-            </div>
+                </div>
             }
             <br />
             <input style="background-color: white" type="submit" value="Update" />
