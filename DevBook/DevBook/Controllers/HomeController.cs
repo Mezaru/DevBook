@@ -97,7 +97,15 @@ namespace DevBook.Controllers
         [HttpGet]
         public IActionResult FilterPersons(int id)
         {
-            var data = repository.GetFilterFromId(id);
+            HomeFilterDataVM data;
+            if (id == 0)
+            {
+                data = repository.GetAllPersons();
+            }
+            else
+            {
+                data = repository.GetFilterFromId(id);
+            }
             return PartialView("_FilterPersons", data);
         }
     }
