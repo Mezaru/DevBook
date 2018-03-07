@@ -90,10 +90,6 @@ namespace DevBook.Models
                 context.ConnTable.Remove(item);
             }
 
-
-            
-
-
             foreach (var item in model.SelectedSkills)
             {
                 context.ConnTable.Add(new ConnTable

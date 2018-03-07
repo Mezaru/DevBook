@@ -24,14 +24,23 @@
             <br />
             @foreach (var item in Model.Skills)
             {
-                <input type="checkbox" name="@($"{nameof(HomeEditVM)}.{nameof(HomeEditVM.SelectedSkills)}")" value="@item.Value" id="@item.Value" @(item.Selected ? "checked" : "") />
+                <input type="checkbox" name="@($"{nameof(HomeEditVM.SelectedSkills)}")" value="@item.Value" id="@item.Value" @(item.Selected ? "checked" : "") />
                 <label for="@item.Value" class="checkbox-inline"> @item.Text  </label>
             }
             <br />
             <input style="background-color: white" type="submit" value="Update" />
         </form>
+
         <form asp-controller="Home" asp-action="remove">
             <input style="background-color: white" type="submit" value="Remove person" />
         </form>
     </div>
+
+    @*@foreach (var item in Model.Person.Skills)
+    {
+        <div>
+            <input type="checkbox" name="@($"{nameof(HomeAddVM.Person)}.{nameof(HomeAddVM.PersonVM.SelectedSkills)}")" id="@item.Value" value="@item.Value" />
+            <label for="@item.Value" class="checkbox-inline"> @item.Text  </label>
+        </div>
+    }*@
 </body>
