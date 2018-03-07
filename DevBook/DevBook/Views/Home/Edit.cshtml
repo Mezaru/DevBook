@@ -22,12 +22,12 @@
         <input asp-for="Description" type="text" />
         <span asp-validation-for="Description"></span>
         <br />
-        @*@foreach (var item in Model.Skills)
+        @foreach (var item in Model.Skills)
             {
                 <input type="checkbox" name="@($"{nameof(HomeEditVM)}.{nameof(HomeEditVM.SelectedSkills)}")" value="@item.Value" />
                 <label>@item.Text</label>
             }
-            <br />*@
+            <br />
         <input style="background-color: white" type="submit" value="Update" />
     </form>
     <form asp-controller="Home" asp-action="remove">
