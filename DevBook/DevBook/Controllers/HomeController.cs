@@ -62,7 +62,6 @@ namespace DevBook.Controllers
         }
 
         [HttpGet]
-        [Route("Home/Edit/{id}")]
         public IActionResult Edit(int id)
         {
             HomeEditVM model = repository.GetPersonById(id);
@@ -70,7 +69,6 @@ namespace DevBook.Controllers
             return View(model);
         }
         [HttpPost]
-        [Route("Home/Edit/{id}")]
         public IActionResult Edit(HomeEditVM model)
         {
             if (!ModelState.IsValid)
