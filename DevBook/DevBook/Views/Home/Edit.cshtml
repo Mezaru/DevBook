@@ -24,7 +24,7 @@
         <br />
         @foreach (var item in Model.Skills)
             {
-                <input type="checkbox" name="@($"{nameof(HomeEditVM)}.{nameof(HomeEditVM.SelectedSkills)}")" value="@item.Value" />
+                <input type="checkbox" name="@($"{nameof(HomeEditVM)}.{nameof(HomeEditVM.SelectedSkills)}")" value="@item.Value" @(item.Selected?"checked":"") />
                 <label>@item.Text</label>
             }
             <br />

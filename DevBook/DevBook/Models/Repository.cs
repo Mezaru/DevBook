@@ -82,16 +82,24 @@ namespace DevBook.Models
             personToUpdate.PhoneNumber = model.PhoneNumber;
             personToUpdate.Description = model.Description;
 
-            context.SaveChanges();
+            var skillsToRemove = context.ConnTable
+                .Where(p => p.PersonId == personToUpdate.Id);
 
-            var skillsToUpdate = context.ConnTable.Where(s => s.PersonId == model.Id);
+            foreach (var item in skillsToRemove)
+            {
+                context.ConnTable.Remove(item);
+            }
 
             foreach (var item in model.SelectedSkills)
             {
-                
+                context.ConnTable.Add(new ConnTable
+                {
+                    SkillId = item,
+                    PersonId = personToUpdate.Id,
+                });
             }
-            context.SaveChanges();
 
+            context.SaveChanges();
         }
 
         internal HomeFilterDataVM GetAllPersons()
@@ -141,7 +149,8 @@ namespace DevBook.Models
                         .Select(o => new SelectListItem
                         {
                             Text = o.Skill1,
-                            Value = o.Id.ToString()
+                            Value = o.Id.ToString(),
+                            Selected = o.ConnTable.Any(s => s.PersonId == id)
                         })
                         .ToArray()
             };
