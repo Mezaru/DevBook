@@ -23,8 +23,6 @@
         <textarea asp-for="Person.Description" type="text" style="width: 200px; height: 200px" ></textarea>
         <span asp-validation-for="Person.Description"></span>
         <br />
-       
-        
         @foreach (var item in Model.Person.Skills)
         {
         <div>
