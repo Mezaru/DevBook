@@ -81,6 +81,24 @@ namespace DevBook.Models
             personToUpdate.Email = model.Email;
             personToUpdate.PhoneNumber = model.PhoneNumber;
             personToUpdate.Description = model.Description;
+
+            var skillsToRemove = context.ConnTable
+                .Where(p => p.PersonId == personToUpdate.Id);
+
+            foreach (var item in skillsToRemove)
+            {
+                context.ConnTable.Remove(item);
+            }
+
+            foreach (var item in model.SelectedSkills)
+            {
+                context.ConnTable.Add(new ConnTable
+                {
+                    SkillId = item,
+                    PersonId = personToUpdate.Id,
+                });
+            }
+
             context.SaveChanges();
         }
 
@@ -97,12 +115,12 @@ namespace DevBook.Models
         public void RemovePerson(HomeEditVM person)
         {
 
-           var model = context.ConnTable
-                .Where(p => p.PersonId == person.Id);
+            var model = context.ConnTable
+                 .Where(p => p.PersonId == person.Id);
 
             foreach (var item in model)
             {
-            context.ConnTable.Remove(item);
+                context.ConnTable.Remove(item);
             }
 
 
@@ -110,7 +128,7 @@ namespace DevBook.Models
                 .Single(p => p.Id == person.Id);
 
             context.Person.Remove(personToRemove);
-                
+
             context.SaveChanges();
         }
 
@@ -118,7 +136,8 @@ namespace DevBook.Models
         {
             var person = context.Person.Find(id);
 
-            return new HomeEditVM {
+            return new HomeEditVM
+            {
                 Id = person.Id,
                 FirstName = person.FirstName,
                 LastName = person.LastName,
@@ -126,11 +145,12 @@ namespace DevBook.Models
                 PhoneNumber = person.PhoneNumber,
                 Description = person.Description,
 
-                  Skills = context.Skill
+                Skills = context.Skill
                         .Select(o => new SelectListItem
                         {
                             Text = o.Skill1,
-                            Value = o.Id.ToString()
+                            Value = o.Id.ToString(),
+                            Selected = o.ConnTable.Any(s => s.PersonId == id)
                         })
                         .ToArray()
             };

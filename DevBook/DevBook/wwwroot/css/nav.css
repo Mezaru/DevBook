@@ -11,10 +11,51 @@
     padding: 10px;
     margin: 25px 15px 25px 0;
 }
-.Main{
+.Main {
     width: 70%;
-    margin-left:auto;
-    margin-right:auto;
-    background-color:rgba(0, 0, 0, 0.21);
-    padding: 40px;   
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0.21);
+    padding: 40px;
+    display: -webkit-box;
 }
+
+div.InfoTable {
+    border-radius: 15px;
+    padding: 20px;
+    background-color: #76de79;
+    color: #222222;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    box-shadow: 3px 4px 4px 0px black;
+}
+    
+
+
+button.InfoTable {
+    border: 1px solid #000000;
+}
+
+select.DropDown {
+    padding: 6px 10px;
+    border: 1px solid #5baf5f;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+select.SortPersons {
+    padding: 6px 10px;
+    border: 1px solid #5baf5f;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+button {
+    border-color: #000;
+}
+
+
+
